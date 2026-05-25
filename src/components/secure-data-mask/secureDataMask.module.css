@@ -1,0 +1,102 @@
+.preview {
+  font-family:
+    SFMono-Regular, ui-monospace, Menlo, Consolas, monospace;
+  font-size: clamp(1rem, 1.5vw + 0.85rem, 1.25rem);
+  letter-spacing: 0.012em;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.wrap {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+
+  display: grid;
+  gap: 0.75rem;
+  padding: clamp(0.85rem, 1vw + 0.65rem, 1.05rem);
+  border-radius: 0.95rem;
+  border: 1px solid rgb(226 232 240 / 0.9);
+  background: rgb(248 250 252 / 0.75);
+}
+
+@media (prefers-color-scheme: dark) {
+  .wrap {
+    border-color: rgb(51 65 85 / 0.9);
+    background: rgb(15 23 42 / 0.55);
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+/* visibility:hidden on reveal keeps this line’s height so cards don’t shrink */
+.keyboardHint {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgb(148 163 184);
+  line-height: 1.35;
+  min-block-size: 1.35em;
+}
+
+.keyboardHintConcealed {
+  visibility: hidden;
+}
+
+.revealToggle {
+  border-radius: 0.85rem;
+  border: 1px solid rgb(148 163 184);
+  padding: 0.6rem clamp(1rem, 4vw + 0.65rem, 1.85rem);
+  font-size: clamp(0.85rem, 1vw + 0.74rem, 0.94rem);
+  font-weight: 600;
+  color: inherit;
+  background-image: linear-gradient(
+    155deg,
+    rgb(239 246 255 / 0.85),
+    rgb(248 250 252 / 0.92)
+  );
+  cursor: pointer;
+}
+
+.revealToggle:focus-visible {
+  outline: 2px solid rgb(59 130 246);
+  outline-offset: 3px;
+}
+
+.revealToggle:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .revealToggle {
+    border-color: rgb(100 116 139);
+    background-image: linear-gradient(
+      160deg,
+      rgb(51 65 85 / 0.75),
+      rgb(15 118 110 / 0.28)
+    );
+  }
+
+  .revealToggle:focus-visible {
+    outline-color: rgb(56 189 248);
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  inset-block-start: auto;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

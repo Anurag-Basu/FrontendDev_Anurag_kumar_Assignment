@@ -1,0 +1,166 @@
+.dashboard {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  display: grid;
+  gap: clamp(1.6rem, 3vw + 1.05rem, 2.85rem);
+}
+
+.headlineWrap {
+  text-align: start;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.cacheNotice {
+  margin: 0;
+  max-inline-size: 68ch;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  padding: 0.65rem 0.95rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(251 191 36 / 0.85);
+  background: rgb(254 252 232 / 0.94);
+  color: rgb(113 63 18);
+}
+
+@media (prefers-color-scheme: dark) {
+  .cacheNotice {
+    border-color: rgb(245 158 11 / 0.45);
+    background: rgb(69 26 3 / 0.52);
+    color: rgb(253 230 138);
+  }
+}
+
+.heroTitle {
+  margin: 0;
+}
+
+.lede {
+  max-inline-size: 68ch;
+  font-size: 1rem;
+}
+
+.grid {
+  box-sizing: border-box;
+  display: grid;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  column-gap: clamp(1.25rem, 3vw + 0.85rem, 2rem);
+  row-gap: clamp(1.25rem, 2.75vw + 0.92rem, 2.05rem);
+  grid-template-columns: repeat(auto-fit, minmax(min(16.5rem, 100%), 1fr));
+}
+
+.grid > li {
+  display: grid;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.statePanel {
+  border-radius: 1.05rem;
+  border: 1px dashed rgb(148 163 184 / 0.95);
+  padding: clamp(1.5rem, 6vw + 0.95rem, 3.25rem);
+  text-align: center;
+}
+
+.stateBusy {
+  display: grid;
+  gap: 1rem;
+}
+
+.shimmerStrip {
+  block-size: 0.82rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgb(148 163 184 / 0.25),
+    rgb(148 163 184 / 0.54),
+    rgb(148 163 184 / 0.25)
+  );
+  animation: glide 900ms infinite ease-in-out;
+}
+
+@keyframes glide {
+  0% {
+    opacity: 0.45;
+    transform: translateX(-4%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateX(6%);
+  }
+
+  100% {
+    opacity: 0.45;
+    transform: translateX(-4%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmerStrip {
+    animation: none;
+    opacity: 0.55;
+  }
+}
+
+.ctaRows {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-block-start: 1rem;
+}
+
+.ctaRowsStart {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.fetchErrorAside {
+  margin: 0;
+  flex: 1 1 12rem;
+  font-size: 0.91rem;
+  line-height: 1.38;
+}
+
+.buttonPrimary,
+.buttonNeutral {
+  border-radius: 0.92rem;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem clamp(1.2rem, 4vw + 0.68rem, 1.82rem);
+  cursor: pointer;
+}
+
+.buttonPrimary {
+  background: rgb(79 70 229);
+  color: rgb(249 250 251);
+}
+
+.buttonNeutral {
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgb(203 213 225);
+}
+
+.buttonPrimary:focus-visible,
+.buttonNeutral:focus-visible {
+  outline: 2px solid rgb(251 146 60);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .statePanel {
+    border-color: rgb(71 85 105 / 0.92);
+    background: rgb(15 23 42 / 0.45);
+  }
+
+  .buttonNeutral {
+    border-color: rgb(71 85 105);
+    color: rgb(226 232 240);
+  }
+}
